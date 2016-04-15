@@ -1,0 +1,50 @@
+<head>
+  <title>Grademption</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+</head>
+
+<body>
+  <h1>Welcome to Grademption</h1>
+  <p> Finally a way to keep track of all those pesky grades! </p>
+  <p> Click directly on any row to edit any and all of your grades. </p>
+
+ {{> gradeTable}}
+  {{> averageGrade}}
+</body>
+
+
+<template name="gradeTable">
+  <div id = "g-table">
+    <form id ="new-grade">
+    <table>
+    <tr>
+      <th>Pupil</th>
+      <th>Subject</th>
+      <th>Grade</th>
+    </tr>
+     {{#each ding}}
+      <tr>
+        <td> <input type ="text" name= "pupMod" class ="modify" value="{{pupil}}">
+        </td>
+        <td> <input type ="text" name= "subMod" class ="modify" value="{{subject}}">
+        </td>
+        <td><input type = "number" name= "gradeMod" class ="modify" value="{{grade}}"></td>
+        <!-- <td> <button class= "edit"> Edit </button></td> -->
+        <td> <button class= "delete"> Delete </button></td>
+     </tr> 
+     {{/each}}
+     <tr>
+      <td><input type ="text" name= "pupil" form = "new-grade"></td>
+      <td><input type ="text" name= "subject" form = "new-grade"></td>
+      <td><input type ="number" name= "grade" form = "new-grade"></td>
+      <td><input type="submit" value="Add a Grade" form = "new-grade" class="submit"></td>
+    </tr>
+    </table>
+  </form>
+</div>
+</template>
+
+<template name="averageGrade">
+  <h2>The Overall Grade Average is: {{boing}} </h2>
+</template>
